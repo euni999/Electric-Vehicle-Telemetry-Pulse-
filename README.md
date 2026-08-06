@@ -80,8 +80,11 @@ null 처리: 이상 피처가 비어 있는 레코드에서 워크플로가 실�
 ![아키텍처](docs/architecture.png)
 
 BSI: 위 수식으로 산출. 가중치는 NASA Battery Dataset 분석 기반, μ/σ 파라미터는 BMW i3 Dataset 기반. 실제 BSI 값은 Azure ML(LightGBM)이 추론해 SQL에 기록한다.
+
 모델 목표: Danger Recall 0.80 / Macro F1 0.75 — 정확도보다 위험 차량 미탐지 최소화 우선.
+
 Simulator: 전처리된 BMW CSV(약 200,000행·실차 70대)를 IoT Hub로 재생. 파생변수만 계산하고 BSI 산출은 Azure ML이 담당.
+
 IaC: Bicep으로 핵심 리소스(IoT Hub·SQL·Stream Analytics·Storage·Logic Apps) 정의.
 
 ---
