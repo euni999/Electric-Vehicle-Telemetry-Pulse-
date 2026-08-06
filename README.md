@@ -2,7 +2,7 @@
 
 전기차 배터리 텔레메트리를 실시간 수집·분석해 이상 전조를 조기 탐지하는 Azure 기반 모니터링 시스템. 자체 지표 BSI(Battery Stress Index) 로 차량 상태를 정량화한다.
 
-5인 팀 프로젝트 (2026.05, 2주) · 원본 저장소: ev-pulse/Electric-Vehicle-Telemetry-Pulse- 이 포크는 제가 담당한 파트(Text-to-SQL 챗봇 · 실시간 알림)를 중심으로 정리한 문서입니다.
+- 5인 팀 프로젝트(2주) | 원본 저장소: ev-pulse/Electric-Vehicle-Telemetry-Pulse- 이 포크는 제가 담당한 파트(Text-to-SQL 챗봇 · 실시간 알림)를 중심으로 정리한 문서입니다.
 ---
 
 ## 프로젝트 목표
@@ -20,6 +20,7 @@ Text-to-SQL 챗봇	Azure Functions(Python), Azure OpenAI gpt-4o-mini, Azure SQL	
 DB 스키마 설계	Azure SQL	텔레메트리·알림 테이블
 
 팀 공통 파트(시뮬레이터, Stream Analytics, Azure ML 모델링, 대시보드, Bicep IaC)는 아래 전체 아키텍처에 요약만 두었습니다.
+
 ---
 1. Text-to-SQL 챗봇
 
@@ -53,6 +54,7 @@ Azure ML이 기록한 [dbo].[ModelAlertTest] 테이블을 3분 간격으로 폴�
 UTC → KST: Azure SQL이 UTC로 기록해 알림 시각이 9시간 어긋남 → 워크플로 내 변환 처리
 한글 깨짐: Slack 페이로드 인코딩 이슈 → 메시지 구성 방식 수정
 null 처리: 이상 피처가 비어 있는 레코드에서 워크플로가 실패 → 조건 분기로 방어
+
 ---
 
 ## 아키텍처
